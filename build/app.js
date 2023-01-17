@@ -84,6 +84,10 @@ form.addEventListener('submit', (e) => {
     const bookTitle = document.getElementById("title").value;
     const bookAuthor = document.getElementById("author").value;
     const bookPages = document.getElementById("pages").value;
+    console.log(bookTitle);
+    if(bookTitle === "" || bookAuthor === "" || bookPages === ""){
+        return;
+    }
     const book = new Book(bookTitle, bookAuthor, bookPages, true);
     addBooktoLibrary(book)
     console.log(myLibrary);
