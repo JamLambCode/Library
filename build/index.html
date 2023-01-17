@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="app.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/0babdb070e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="box-border space-y-6 bg-gray-100">
+    <header class="flex justify-between p-5">
+      <button id="open-button"><i class="fa-solid fa-plus"></i></button>
+      <h1 class="font-bold">Personal Liberry</h1>
+      <button><i class="fa-solid fa-chart-simple"></i></button>
+    </header>
+
+    <dialog
+      class="max-w-50ch p-0 open:animate-fade_in open:drop-shadow-md open:backdrop:animate-fade_in open:backdrop:bg-slate-600 open:backdrop:bg-opacity-50 data-[closing=true]:pointer-events-none data-[closing=true]:inset-0 data-[closing=true]:block data-[closing=true]:animate-fade_out data-[closing=true]:backdrop:animate-fade_out"
+      id="modal"
+    >
+      <div class="p-5">
+        <form action="" method="dialog" id="log" class="grid grid-cols-1 gap-5">
+          <div class="relative">
+            <input
+              class="peer border-b-2 p-1 placeholder-transparent invalid:border-rose-500 focus:outline-none"
+              type="text"
+              id="title"
+              placeholder="nothing"
+            />
+            <label
+              for="title"
+              class="absolute left-1 -top-3.5 text-sm text-slate-600 transition-all peer-placeholder-shown:top-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:left-1 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-slate-600"
+              >Title</label
+            >
+          </div>
+          <div class="relative">
+            <input
+              class="peer border-b-2 p-1 placeholder-transparent invalid:border-rose-500 focus:outline-none"
+              type="text"
+              id="author"
+              placeholder="nothing"
+            />
+            <label
+              for="author"
+              class="absolute left-1 -top-3.5 text-sm text-slate-600 transition-all peer-placeholder-shown:top-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:left-1 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-slate-600"
+              >Author</label
+            >
+          </div>
+          <div class="relative">
+            <input
+              class="peer border-b-2 p-1 placeholder-transparent invalid:border-rose-500 focus:outline-none"
+              type="number"
+              id="pages"
+              placeholder="nothing"
+              min="0"
+              max="10000"
+            />
+            <label
+              for="pages"
+              class="absolute left-1 -top-3.5 text-sm text-slate-600 transition-all peer-placeholder-shown:top-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:left-1 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-slate-600"
+              >Pages</label
+            >
+          </div>
+          <button type="submit" id="close-button">done</button>
+        </form>
+      </div>
+    </dialog>
+
+    <div id="information" class="grid gap-5 p-5 sm:grid-cols-2"></div>
+  </body>
+</html>
