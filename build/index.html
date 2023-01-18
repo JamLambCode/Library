@@ -20,11 +20,12 @@
     </header>
 
     <dialog
-      class="max-w-50ch p-0 open:animate-fade_in open:drop-shadow-md open:backdrop:animate-fade_in open:backdrop:bg-slate-600 open:backdrop:bg-opacity-50 data-[closing=true]:pointer-events-none data-[closing=true]:inset-0 data-[closing=true]:block data-[closing=true]:animate-fade_out data-[closing=true]:backdrop:animate-fade_out"
+      class="max-w-50ch rounded-md p-0 open:animate-fade_in open:drop-shadow-md open:backdrop:animate-fade_in open:backdrop:bg-slate-600 open:backdrop:bg-opacity-50 data-[closing=true]:pointer-events-none data-[closing=true]:inset-0 data-[closing=true]:block data-[closing=true]:animate-fade_out data-[closing=true]:backdrop:animate-fade_out"
       id="modal"
     >
-      <div class="p-5">
-        <form action="" method="dialog" id="log" class="grid grid-cols-1 gap-5">
+      <div class="p-7">
+        <form action="" method="dialog" id="log" class="grid grid-cols-1 gap-8">
+          <h1 class="text-center font-bold">Add a Book</h1>
           <div class="relative">
             <input
               class="required peer border-b-2 p-1 placeholder-transparent invalid:border-rose-500 focus:outline-none"
@@ -66,7 +67,13 @@
               >Pages</label
             >
           </div>
-          <button type="submit" id="close-button">done</button>
+          <button
+            class="rounded-md bg-red-500 font-bold text-white"
+            type="submit"
+            id="close-button"
+          >
+            ADD
+          </button>
         </form>
       </div>
     </dialog>

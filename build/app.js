@@ -12,6 +12,7 @@ function Book(title, author, pages, read){
 Book.prototype.info =  function () {
     if(this.read === false) {
         const message = (`${this.title} by ${this.author}, ${this.pages} pages,not read yet`);
+        
         return message;
     }
     const message = (`${this.title} by ${this.author}, ${this.pages} pages, read`)
@@ -35,17 +36,48 @@ function showCards(){
             child = document.getElementById("information").lastElementChild;
         }
     }
-
+//we style the stuff in here
     for(let i = 0; i < myLibrary.length; i++){
 
         const divElement = document.createElement("div");
 
-        const title = document.createElement("p");
-        title.textContent = (myLibrary[i]).info();
+
+        const removeButton = document.createElement("button");
+        const icon = document.createElement("i");
+        icon.classList.add("fa-solid", "fa-minus")
+        removeButton.appendChild(icon);
+        divElement.appendChild(removeButton);
+        removeButton.classList.add("block", "text-right");
+        removeButton.setAttribute('data-remover', 'true');
+        removeButton.setAttribute('id', i);
+
+
+        const title = document.createElement("h1");
+        title.textContent = (myLibrary[i]).title;
+        title.classList.add("font-bold");
+
+        const author = document.createElement("h2");
+        author.textContent = (myLibrary[i]).author;
+        author.classList.add("font-bold");
+
+        const pages = document.createElement("h2");
+        pages.textContent = (myLibrary[i]).pages;
+        pages.classList.add("font-bold");
+
+        const read = document.createElement("h2");
+        read.textContent = (myLibrary[i]).read;
+        read.classList.add("font-bold");
+
 
         divElement.appendChild(title);
+        divElement.appendChild(author);
+        divElement.appendChild(pages);
+        divElement.appendChild(read);
 
-        divElement.classList.add("bg-red-500", "text-white", "rounded", "p-5");
+
+
+
+        divElement.classList.add("bg-red-500", "text-white", "rounded", "p-5", "text-center");
 
         document.getElementById("information").appendChild(divElement);
 
@@ -53,6 +85,20 @@ function showCards(){
     }
 }
 
+function removeBook(index){
+    myLibrary.splice(index,1);
+    showCards();
+}
+
+function removeListener(e){
+    const element = e.target.parentElement;
+    if(element.getAttribute('data-remover','true') ){
+        removeBook(element.getAttribute('id'));
+    }
+    
+}
+
+document.addEventListener( "click", removeListener );
 
 
 const modal = document.querySelector("#modal");
