@@ -12,11 +12,17 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body class="box-border space-y-6 bg-gray-100">
-    <header class="flex justify-between p-5">
-      <button id="open-button"><i class="fa-solid fa-plus"></i></button>
-      <h1 class="font-bold">Personal Liberry</h1>
-      <button><i class="fa-solid fa-chart-simple"></i></button>
+  <body class="box-border space-y-6 bg-gray-100 text-xl">
+    <header
+      class="flex justify-between bg-red-500 p-5 text-white drop-shadow-md"
+    >
+      <button id="open-button" class="">
+        <i class="fa-solid fa-plus hover:bg-red-400 p-3 hover:rounded-full transition-all text-slate-200 hover:text-white"></i>
+      </button>
+      <h1 class="text-3xl font-bold">
+        <i class="fa-solid fa-book mr-3"></i> Personal Liberry
+      </h1>
+      <button id="open-button2"><i class="fa-solid fa-chart-simple"></i></button>
     </header>
 
     <dialog
@@ -66,6 +72,11 @@
               class="absolute left-1 -top-3.5 text-sm text-slate-600 transition-all peer-placeholder-shown:top-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:left-1 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-slate-600"
               >Pages</label
             >
+          
+          </div>
+          <div class="flex items-center gap-3">
+            <label for="read" class="text-slate-400 text-base">Read</label>
+            <input type="checkbox" name="read" id="read" class="w-4 h-4">
           </div>
           <button
             class="rounded-md bg-red-500 font-bold text-white"
@@ -77,6 +88,14 @@
         </form>
       </div>
     </dialog>
+
+    <dialog
+      class="max-w-50ch rounded-md p-0 open:animate-fade_in open:drop-shadow-md open:backdrop:animate-fade_in open:backdrop:bg-slate-600 open:backdrop:bg-opacity-50 data-[closing=true]:pointer-events-none data-[closing=true]:inset-0 data-[closing=true]:block data-[closing=true]:animate-fade_out data-[closing=true]:backdrop:animate-fade_out"
+      id="modal2"
+    >
+    <div class="p-7">Here is where we are going to put all of the stats for mobile</div>
+    </dialog>
+
 
     <div id="information" class="grid gap-5 p-5 sm:grid-cols-2"></div>
   </body>

@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable no-plusplus */
 const myLibrary = [];
 
@@ -46,26 +47,30 @@ function showCards(){
         const icon = document.createElement("i");
         icon.classList.add("fa-solid", "fa-minus")
         removeButton.appendChild(icon);
-        divElement.appendChild(removeButton);
-        removeButton.classList.add("block", "text-right");
+        //divElement.appendChild(removeButton);
+        removeButton.classList.add("text-right", "text-xl");
         removeButton.setAttribute('data-remover', 'true');
         removeButton.setAttribute('id', i);
 
 
         const title = document.createElement("h1");
         title.textContent = (myLibrary[i]).title;
-        title.classList.add("font-bold");
+        title.classList.add("font-bold", "text-4xl", "border-b-2", "flex", "justify-between", "pb-3");
+        title.appendChild(removeButton);
+        
+        
+
 
         const author = document.createElement("h2");
-        author.textContent = (myLibrary[i]).author;
+        author.innerHTML = `Author: ${(myLibrary[i]).author}`;    
         author.classList.add("font-bold");
 
         const pages = document.createElement("h2");
-        pages.textContent = (myLibrary[i]).pages;
+        pages.innerHTML = `Pages: ${(myLibrary[i]).pages}`;    
         pages.classList.add("font-bold");
 
         const read = document.createElement("h2");
-        read.textContent = (myLibrary[i]).read;
+        read.innerHTML = `Read: ${(myLibrary[i]).read}`;    
         read.classList.add("font-bold");
 
 
@@ -77,7 +82,7 @@ function showCards(){
 
 
 
-        divElement.classList.add("bg-red-500", "text-white", "rounded", "p-5", "text-center");
+        divElement.classList.add("bg-red-500", "text-white", "rounded", "p-8");
 
         document.getElementById("information").appendChild(divElement);
 
@@ -130,11 +135,12 @@ form.addEventListener('submit', (e) => {
     const bookTitle = document.getElementById("title").value;
     const bookAuthor = document.getElementById("author").value;
     const bookPages = document.getElementById("pages").value;
-    console.log(bookTitle);
+    const bookRead = document.getElementById("read").checked;
+    //console.log(bookTitle);
     if(bookTitle === "" || bookAuthor === "" || bookPages === ""){
         return;
     }
-    const book = new Book(bookTitle, bookAuthor, bookPages, true);
+    const book = new Book(bookTitle, bookAuthor, bookPages, bookRead);
     addBooktoLibrary(book)
     console.log(myLibrary);
     showCards();
@@ -142,3 +148,27 @@ form.addEventListener('submit', (e) => {
 })
 
 
+
+
+
+const modal2 = document.querySelector("#modal2");
+const openModal2 = document.querySelector("#open-button2");
+const closeModal2 = document.querySelector("#close-button2");
+
+openModal2.addEventListener('click', () => {
+    modal2.showModal();
+})
+
+closeModal2.addEventListener('click', () => {
+    modal2.setAttribute('data-closing','true');
+    modal2.addEventListener('animationend',() =>{
+        modal2.removeAttribute('data-closing');
+        modal2.close();
+    }, {once: true})
+})
+
+modal2.addEventListener('click', (e) => {
+    if(e.target.nodeName === "DIALOG"){
+        modal2.close();
+    }
+})
